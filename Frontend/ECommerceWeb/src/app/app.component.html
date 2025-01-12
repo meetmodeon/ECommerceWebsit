@@ -1,0 +1,110 @@
+<div *ngIf="!isCustomerLoggedIn && !isAdminLoggedIn">
+  <nav class="navbar navbar-expand-lg bg-primary ">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" href="#">E-Commerce</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarScroll">
+        <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item ">
+            <button class="navbar-brand text-white" mat-button routerLink="/order" routerLinkActive="active">Track Order</button>
+          </li>
+          <li class="nav-item">
+            <button class="navbar-brand text-white" mat-button routerLink="/signup" routerLinkActive="active">Register</button>
+          </li>
+  
+          <li class="nav-item">
+            <button class="navbar-brand text-white" mat-button routerLink="/Login" routerLinkActive="active">Login</button>
+          </li>
+        </ul>
+      
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div *ngIf="isAdminLoggedIn">
+  <nav class="navbar navbar-expand-lg bg-primary ">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" href="#">E-Commerce</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarScroll">
+        <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item ">
+            <button class="navbar-brand text-white" mat-button routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</button>
+          </li>
+          <li class="nav-item">
+            <button class="navbar-brand text-white" mat-button routerLink="/admin/analytics" routerLinkActive="active">Analytics</button>
+          </li>
+  
+          <li class="nav-item">
+            <button class="navbar-brand text-white" mat-button routerLink="/admin/category" routerLinkActive="active">Category</button>
+          </li>
+
+
+          <li class="nav-item ">
+            <button class="navbar-brand text-white" mat-button routerLink="/admin/product" routerLinkActive="active">Product</button>
+          </li>
+          <li class="nav-item">
+            <button class="navbar-brand text-white" mat-button routerLink="/admin/orders" routerLinkActive="active">Orders</button>
+          </li>
+  
+          <li class="nav-item">
+            <button class="navbar-brand text-white" mat-button routerLink="/admin/post-coupon" routerLinkActive="active">Post Coupon</button>
+          </li>
+
+          <li class="nav-item">
+            <button class="navbar-brand text-white" mat-button routerLink="/admin/coupons" routerLinkActive="active">Coupon</button>
+          </li>
+          <li class="nav-item">
+            <button class="navbar-brand text-white" mat-button (click)="logout()" routerLinkActive="active">Logout</button>
+          </li>
+        </ul>
+      
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div *ngIf="isCustomerLoggedIn">
+  <nav class="navbar navbar-expand-lg bg-primary ">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" href="#">E-Commerce</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarScroll">
+        <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item ">
+            <button class="navbar-brand text-white" mat-button routerLink="/customer/dashboard" routerLinkActive="active">Dashboard</button>
+          </li>
+          <li class="nav-item">
+            <button class="navbar-brand text-white" mat-button routerLink="/customer/cart" routerLinkActive="active">Cart</button>
+          </li>
+  
+          <li class="nav-item">
+            <button class="navbar-brand text-white" mat-button routerLink="/customer/my_orders" routerLinkActive="active">Orders</button>
+          </li>
+
+          <li class="nav-item ">
+            <button class="navbar-brand text-white" mat-button routerLink="/customer/wishlist" routerLinkActive="active">Wishlist</button>
+          </li>
+          <li class="nav-item">
+            <button class="navbar-brand text-white" mat-button routerLink="/customer/profile" routerLinkActive="active">Profile</button>
+          </li>
+  
+          <li class="nav-item">
+            <button class="navbar-brand text-white" mat-button  routerLinkActive="active" (click)="logout()">Logout</button>
+          </li>
+
+        </ul>
+      
+      </div>
+    </div>
+  </nav>
+</div>
+
+<router-outlet></router-outlet>

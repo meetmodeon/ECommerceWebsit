@@ -1,0 +1,45 @@
+<div class="conatainer-fluid middle">
+    <div class="row">
+        <div class="col-6 offset-3">
+
+            <table mat-table [dataSource]="coupons" class="mat-elevation-z8">
+
+                <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+              
+                <!-- Position Column -->
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef> Id. </th>
+                  <td mat-cell *matCellDef="let coupon"> {{coupon.id}} </td>
+                </ng-container>
+              
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Name </th>
+                  <td mat-cell *matCellDef="let coupon"> {{coupon.name}} </td>
+                </ng-container>
+              
+                <!-- Weight Column -->
+                <ng-container matColumnDef="discount">
+                  <th mat-header-cell *matHeaderCellDef> Discount </th>
+                  <td mat-cell *matCellDef="let coupon"><b>{{coupon.discount}}%</b></td>
+                </ng-container>
+              
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="code">
+                  <th mat-header-cell *matHeaderCellDef> Code </th>
+                  <td mat-cell *matCellDef="let coupon"> <b>{{coupon.code}}</b> </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="expirationDate">
+                    <th mat-header-cell *matHeaderCellDef> Expiration Date </th>
+                    <td mat-cell *matCellDef="let coupon"> {{coupon.expirationDate | date: 'dd/MM/yyyy'}} </td>
+                  </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="['id','name','discount','code','expirationDate']"></tr>
+                <tr mat-row *matRowDef="let row; columns: ['id','name','discount','code','expirationDate']"></tr>
+              </table>
+        </div>
+    </div>
+</div>

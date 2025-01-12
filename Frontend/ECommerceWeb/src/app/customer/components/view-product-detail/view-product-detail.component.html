@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row">
+      <div class="col-6 offset-4">
+        <div class="card">
+           
+                <div class="image-preview">
+                    <div class="circle-image">
+                        <img [src]="product.processedImg" alt="Selected Image" alt="{{product.name}}" class="preview-image">
+                    </div>
+                </div>
+                <div class="card-header">
+                    {{product.name}}
+                </div>
+                <div class="card-body">
+                    <p class="description">{{ product.description }}</p>
+                    <p class="price">Price: ${{ product.price}}</p>
+                    <p class="category">Category: {{ product.categoryName}}</p>
+                    <mat-icon class="heart-icon"(click)="addToWishlist()" style="cursor: poiner; margin-top: 10px;">
+                        favorite_border
+                    </mat-icon>
+                </div>
+       </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6 offset-4">
+        <div class="card">
+            
+                <div class="card-header">
+                    <h1 class="section-heading" *ngIf="reviews.length > 0">Customer Reviews</h1>
+                    <div class="review-list" *ngIf="reviews">
+                        <div class="card-body">
+                            <div class="review-card" *ngFor="let review of reviews">
+                                <div class="image-preview">
+                                <div class="review-image circle-image">
+                                    <img [src]="review.processedImg" *ngIf="review.processedImg" alt="{{review.description}} Image" class="preview-image">
+                                </div>
+                            </div>
+                            <div class="review-details">
+                                <h2>{{ review.description}}</h2>
+                                <div class="details-row">
+                                    <p class="rating">Rating: {{ review.rating}} </p>
+                                    <p class="username">Username: {{ review.username }}</p>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6 offset-4">
+            <div class="card-header">
+                <h1 *ngIf="FAQS.length>0">Frequently Asked Questions</h1>
+            </div>
+            <div class="card-body">
+                <div *ngFor="let faq of FAQS">
+                    <div class="faq-details">
+                        <p class="question">Question:</p>
+                        <p class="question-text">{{ faq.question}}</p>
+                        <p class="answer">Answer:</p>
+                        <p class="answer-text">{{ faq.answer}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

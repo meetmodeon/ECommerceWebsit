@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header">
+                    Review Product
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="reviewForm">
+                        <div class="file-upload-container">
+                            <div>
+                                <label class="file-upload-label">
+                                    <span>Select a File</span>
+                                    <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden/>
+                                    <mat-icon>attach_file</mat-icon>
+                                </label>
+                            </div>
+
+                            <div *ngIf="selectedFile" class="image-preview">
+                                <div class="circle-image">
+                                    <img [src]="imagePreview" alt="Selected Image" class="preview-image">
+                                </div>
+                            </div>
+
+
+                        <div>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Rating</mat-label>
+                                <mat-select formControlName="rating">
+                                    <mat-option value="1">1 Star</mat-option>
+                                    <mat-option value="2">2 Star</mat-option>
+                                    <mat-option value="3">3 Star</mat-option>
+                                    <mat-option value="4">4 Star</mat-option>
+                                    <mat-option value="5">5 Star</mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="reviewForm.get('rating')?.hasError('required') && reviewForm.get('rating')?.touched">
+                                    Please select a rating
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                       <div> <mat-form-field appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput formControlName="description" placeholder="description" rows="5"></textarea>
+                        <mat-error *ngIf="reviewForm.get('description')?.invalid && reviewForm.get('description')?.touched">
+                            This input is required!
+                        </mat-error>
+                    </mat-form-field></div>
+
+                        <button mat-raised-button class="btn btn-success" type="submit" (click)="submitForm()">Submit</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

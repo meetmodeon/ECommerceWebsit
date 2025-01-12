@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <form [formGroup]="searchOrderForm" class="search-form" (submit)="submitForm()">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter Tracking Id to search</mat-label>
+                    <input matInput formControlName="trackingId">
+                    <button mat-button matSuffix class="btn btn-warn" [disabled]="searchOrderForm.invalid">
+                        <mat-icon>search</mat-icon>
+                    </button>
+                </mat-form-field>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header">
+                    Order-detail
+                </div>
+                <div class="card-body">
+                    <div>
+                        Tracking ID:
+                        <strong>{{ order.trackingId}}</strong>
+                    </div>
+                    <div>
+                        User Name:
+                        <strong>{{ order.userName}}</strong>
+                    </div>
+
+                    <div>
+                        Address:
+                        <strong>{{ order.address}}</strong>
+                    </div>
+                    <div >
+                        Status:
+                        <strong>{{ order.orderStatus}}</strong>
+                    </div>
+                    <div>
+                        Date:
+                        <strong>{{ order.date | date}}</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

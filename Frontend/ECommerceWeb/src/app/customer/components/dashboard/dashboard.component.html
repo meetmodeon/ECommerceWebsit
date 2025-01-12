@@ -1,0 +1,51 @@
+
+<div class="search-list">
+    <form [formGroup]="searchProductForm" class="search-form" (submit)="submitForm()">
+        <mat-form-field appearance="outline" class="search-input">
+            <mat-label>Enter Keyword to search</mat-label>
+            <input matInput formControlName="title">
+    
+            <button mat-button matSuffix color="primary" [disabled]="searchProductForm.invalid">
+                <mat-icon>search</mat-icon>
+            </button>
+        </mat-form-field>
+    </form>
+</div>
+
+<div class="product-list">
+    
+
+<div class="container" style="margin-top: 20px;">
+    <div class="row ">
+        <div class="col-3 " *ngFor="let product of products">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" [src]="product.processedImg"  style="height: 150px; object-fit: contain; border-radius: 8px;" alt="Card image cap">
+                <div class="card-body">
+                  <h2 class="card-title" routerLink="/customer/product/{{product.id}}">{{product.name}}</h2>
+                  <p class="card-text">{{product.description}}</p>
+                </div>
+
+                <div class="card-body">
+                   <span><b>Price: </b></span>
+                   <span>${{product.price}}</span>
+                  </div>
+
+                  <div class="card-body">
+                    <span><b>Description:</b></span>
+                    <span>${{product.description}}</span>
+                   </div>
+
+                   <div class="card-body">
+                    <span><b>Category:</b></span>
+                    <span>{{product.categoryname}}</span>
+                   </div>
+                   <mat-divider></mat-divider>
+                   <div class="card-body text-center">
+                   <button mat-raised-button class="btn btn-success update-button" (click)="addToCart(product.id)">Add to cart</button>
+
+                   </div>
+              </div>
+        </div>
+    </div>
+</div>
+</div>

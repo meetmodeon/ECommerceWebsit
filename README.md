@@ -42,4 +42,4 @@ This project is a fully functional eCommerce platform developed using modern web
 
 1. Clone this repository:  
    ```bash  
-   git clone https://github.com/your-username/your-repository.git  
+   git clone https://github.com/meetmodeon/ECommerceWebsit.git  
